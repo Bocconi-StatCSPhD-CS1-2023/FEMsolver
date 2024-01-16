@@ -11,7 +11,7 @@ $K$ is the diffusion coefficient, $\beta: \Omega \rightarrow \mathbb{R}^d$ is a 
 
 See more details in the pdf file for the theory behind the numerical method.
 
-The module EllipticPDE allows to choose the presence or absence of the terms in the PDE, the constants $K,\beta,c$ and the boundary conditions, that can be of the kind Neumann and homogeneous/non-homogeneous Dirichlet.
+The module EllipticPDE allows to choose the presence or absence of the terms in the PDE, the constants $K,\nabla\beta,c$ and the boundary conditions, that can be of the kind Neumann and homogeneous/non-homogeneous Dirichlet.
 The meshes on which the code run are defined on the square [-1,1]x[-1,1]. To find the mesh vertices on the edge, the code takes advantage of the fact that they are exactly on the sides of the square.
 
 In the demo file, there are two differential equations solved.
