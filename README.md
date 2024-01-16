@@ -4,15 +4,15 @@ The purpose of this project is to solve stationary PDEs of second order
 with $P_1$ Galerking Finite Element Method. The PDEs are of the kind
 $$-\text{div}(K\nabla u)+\text{div}(\beta u)+cu=f, \quad \text { in } \Omega
 $$
-With Dirichlet or Neumann boundary conditions on 
+with Dirichlet or Neumann boundary conditions on 
 $\Gamma_D\cup\Gamma_N=\partial\Omega$; in particular:
 $$u=f_d \quad \text { on } \quad \Gamma_{D},\quad K\nabla u\cdot\nu=g \quad \text { on } \quad \Gamma_{N}.$$
 $K$ is the diffusion coefficient, $\beta: \Omega \rightarrow \mathbb{R}^d$ is a vector field, and $c: \Omega \rightarrow \mathbb{R}$ is the reaction coefficient. From the physical point of view, this equation may represent the transport of a solute dissolved in a fluid that moves with the velocity field $\beta(x)$ and undergoes a linear chemical transformation with rate $c$.
 
 See more details in the pdf file for the theory behind the numerical method.
 
-The module EllipticPDE allows to choose the presence or absence of the terms in the PDE, the constants $K,\nabla\beta,c$ and the boundary conditions, that can be of the kind Neumann and homogeneous/non-homogeneous Dirichlet.
-The meshes on which the code run are defined on the square [-1,1]x[-1,1]. To find the mesh vertices on the edge, the code takes advantage of the fact that they are exactly on the sides of the square.
+The module EllipticModule allows to choose the presence or absence of the terms in the PDE, the constants $K,\nabla\beta,c$ and the boundary conditions, that can be of the kind Neumann and homogeneous/non-homogeneous Dirichlet.
+The meshes on which the code run are defined on the square [-1,1]x[-1,1]. To find the mesh vertices on the edges, the code takes advantage of the fact that they are exactly on the sides of the square.
 
 In the demo file, there are two differential equations solved.
 
