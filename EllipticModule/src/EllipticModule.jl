@@ -10,8 +10,8 @@ function input_data(meshdir)
     # Coord is a Nodesx2 matrix where the i^th row corresponds to the coordinates of the i^th node
 
     # meshdir is the path of the directory where the meshes are saved
-    meshtriang = string(meshdir, "\\triang.dat")
-    meshcoord = string(meshdir, "\\xy.dat")
+    meshtriang = string(joinpath(meshdir, "triang.dat"))
+    meshcoord = string(joinpath(meshdir, "xy.dat"))
 
     triang = readdlm(meshtriang)
     xy = readdlm(meshcoord)

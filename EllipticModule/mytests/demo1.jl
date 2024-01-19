@@ -3,7 +3,7 @@ using Plots
 script_dir = @__DIR__
 cd(script_dir)
 
-include(joinpath(@__DIR__, "..", "src\\EllipticModule.jl"))
+include(joinpath(@__DIR__, "..", "src","EllipticModule.jl"))
 
 import .EllipitcPDE
 const EP = EllipitcPDE
@@ -11,7 +11,7 @@ const EP = EllipitcPDE
 # The meshes available are from mesh0 to mesh4, the amplitude of the triangles that compose them change 
 # (from the biggest to the smallest)
 
-meshdir=joinpath(@__DIR__, "meshes\\mesh2")
+meshdir=joinpath(@__DIR__, "meshes","mesh2")
 
 #### EXAMPLE 1 ####
 
