@@ -5,8 +5,8 @@ cd(script_dir)
 
 include(joinpath(@__DIR__, "..", "src","EllipticModule.jl"))
 
-import .EllipitcPDE
-const EP = EllipitcPDE
+import .EllipitcModule
+const EP = EllipitcModule
 
 # The meshes available are from mesh0 to mesh4, the amplitude of the triangles that compose them change 
 # (from the biggest to the smallest)

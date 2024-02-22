@@ -1,0 +1,8 @@
+* Good project
+* Good report
+* Module name EllipticPDE different from file name EllipticModule.jl
+* using `sparse(zeros(N,N))` is not a great idea: it allocates a dense matrix of zeros and then throws it away immediately. Use `spzeros` instead.
+* When your functions start having so many arguments, it is a sign that there is probably a cleaner way. Suggestion: group together arguments in structs, then pass around the whole struct as a single argument (remember to thoroughly annotate the struct attributes' types though). For example, it would seem convenient to create a `Mesh` type.
+* When you start copy-pasting code, that's a hint that you should think of how to improve the design instead.
+* Why keeping more columns than needed in the mesh files??
+* Style notes: julia function names normally use underscores, not CamelCase, certainly not a mix of the two

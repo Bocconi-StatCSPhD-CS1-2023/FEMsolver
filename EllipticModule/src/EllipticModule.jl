@@ -1,4 +1,4 @@
-module EllipitcPDE
+module EllipitcModule
 
 using DelimitedFiles
 using LinearAlgebra
@@ -13,7 +13,7 @@ function input_data(meshdir)
     meshtriang = string(joinpath(meshdir, "triang.dat"))
     meshcoord = string(joinpath(meshdir, "xy.dat"))
 
-    triang = readdlm(meshtriang)
+    triang = readdlm(meshtriang) #<CB># you can read integers adding `Int` as the second argument
     xy = readdlm(meshcoord)
 
     triang = convert(Matrix{Int64},triang[:, 1:3])
@@ -112,7 +112,7 @@ function stiffBuild(Nelem, Nodes, triang, Bloc, Cloc, Area, Diff)
     # OUTPUT: stiffMat matrix Nelem x Nelem
     # The generic element a_ij=int_T a_i*a_j+b_i*b_j=area(T)[a_i*a_j+b_i*b_j]
 
-    stiffMat = sparse(zeros(Nodes, Nodes))
+    stiffMat = sparse(zeros(Nodes, Nodes)) #<CB># Use spzeros instead of this!
     for iel in 1:Nelem
         area = Area[iel]
         for iloc in 1:3
@@ -223,6 +223,9 @@ function forcing_Neumann(ElementBoundary, Length, boundary_nodes, coord, Nodes, 
     # NEUMANN COMPONENT
     rhs = zeros(Nodes)
 
+    ##<CB># Lots of code duplication here! Instead of copy-pasting, do another loop over "W", "E", "S", "N"
+    ##      Things that need changing within the loop can be stored in a dict; or perhaps you can do
+    ##          for (neu, dir, c) in [(neuW, "W", -1), (newE, "E", 1), ...]
     if neuW != nothing
         NeuNod = boundary_nodes["W"]
         for iel in ElementBoundary["W"]
@@ -283,6 +286,7 @@ function forcing_Dir(coord, Nodes, boundary_nodes, stiffMat, rhs, dirW, dirE,  d
     AA = copy(stiffMat)
     rh = copy(rhs)
 
+    ##<CB># see above
     if dirW != nothing
         DirNod = boundary_nodes["W"]
         for iglob in DirNod
